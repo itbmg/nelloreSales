@@ -159,7 +159,7 @@
         </div>
       </div>
       <div class="col-half_rig">
-        <h3>SRI VYSHNAVI DAIRY SPECIALITIES (P) LTD</h3>
+        <h3>Sai Enterprises</h3>
          <div >
          <h4>OTP authentication</h4>
         </div>

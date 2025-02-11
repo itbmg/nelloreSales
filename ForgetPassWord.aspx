@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
   <link rel="icon" href="Images/tlogo.PNG" type="image/x-icon" title=BMG />
-    <title>Vyshnavi Dairy </title>
+    <title>Sai Enterprises </title>
 <script type="text/javascript" src="js/jquery-1.4.4.js"></script>
     <link href="Styles/login.css" rel="stylesheet" type="text/css" />
     <style type="text/css">

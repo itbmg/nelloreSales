@@ -923,7 +923,7 @@
                                     <div class="content">
                                         <div style="border: 2px solid gray;">
                                             <div style="width: 22%; float: right; padding-top: 5px;">
-                                                <%--<img src="Images/Vyshnavilogo.png" alt="Vyshnavi Dairy" width="100px" height="72px" />
+                                                <%--<img src="Images/Vyshnavilogo.png" alt="Sai Enterprises" width="100px" height="72px" />
                                                 <br />--%>
                                                 <div id="image"></div>
                                                 <br />
