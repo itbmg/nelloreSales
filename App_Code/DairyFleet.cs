@@ -15633,7 +15633,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                         tostate = dr["stateid"].ToString();
                         assigndate = dr["AssignDate"].ToString();
                         GetDetails.vehicleno = dr["VehicleNo"].ToString();
-                        DispatchName = dr["DispatchName"].ToString();
+                        DispatchName = dr["DispatchName"].ToString(); partyname
                         GetDetails.Refdcno = dr["Sno"].ToString();
                         GetDetails.Dispatchsno = dr["dispsno"].ToString();
                         Employeename = dr["Employee"].ToString();
@@ -15742,6 +15742,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                         GetDetails.fromstatecode = context.Session["statecode"].ToString();
                         GetDetails.fromgstin = context.Session["gstin"].ToString();
                         GetDetails.branchname = context.Session["branchname"].ToString();
+                        GetDetails.Title = dtbranchaddress.Rows[0]["BranchName"].ToString();
                     }
                     GetDetails.DcNo = DcNo;
                     DateTime dtassigndate = Convert.ToDateTime(assigndate);
@@ -15777,7 +15778,11 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                     string address = dtbranchaddress.Rows[0]["doorno"].ToString() + "," + dtbranchaddress.Rows[0]["street"].ToString() + "," + dtbranchaddress.Rows[0]["area"].ToString() + "," + dtbranchaddress.Rows[0]["mandal"].ToString() + "," + dtbranchaddress.Rows[0]["city"].ToString() + "," + dtbranchaddress.Rows[0]["district"].ToString() + " District -" + dtbranchaddress.Rows[0]["pincode"].ToString();
                     GetDetails.Address = address;
                 }
-                GetDetails.Title = context.Session["TitleName"].ToString();
+                if (context.Session["branch"].ToString() != "12")
+                {
+                    GetDetails.Title = context.Session["TitleName"].ToString();
+                }
+                
                 GetDetails.tinNo = context.Session["TinNo"].ToString();
                 DcDetailslist.Add(GetDetails);
                 string response = GetJson(DcDetailslist);
@@ -20500,7 +20505,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                                     DateTime dtmonth = Convert.ToDateTime(Date);
                                     string strdate = dtmonth.ToString("dd/MMM");
                                     string message = "";
-                                    if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                    if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                     {
                                         //string baseurl = "http://103.225.76.43/blank/sms/user/urlsmstemp.php?username=vyshnavidairy&pass=vyshnavi@123&senderid=VYSHRM&dest_mobileno=" + phonenumber + "&message=Dear%20" + BranchName + "%20Your%20Incentive%20Amount%20Credeted%20for%20The%20Month%20Of%20%20" + strdate + "%20Amount%20is =" + PaidAmount + "&response=Y";
                                         string baseurl = "http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VSALES&to=" + phonenumber + "&msg=Dear%20" + BranchName + "%20Your%20Incentive%20Amount%20Credeted%20for%20The%20Month%20Of%20%20" + strdate + "%20Amount%20is =" + PaidAmount + "&type=1";
@@ -20528,7 +20533,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                                     try
                                     {
                                         string Date = PaidDate;
-                                        if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                        if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                         {
                                             WebClient client = new WebClient();
                                             //http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VYSNVI&to=
@@ -22020,31 +22025,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
             DataTable Report = new DataTable();
             if (GroupLogin == "1")
             {
-                if (SelecteType == "Vyshnavi Group")
-                {
-                    Report.Columns.Add("Sno");
-                    Report.Columns.Add("BranchName");
-                    DataRow newrow = Report.NewRow();
-                    newrow["BranchName"] = "GroupWise";
-                    newrow["sno"] = "8009";
-                    Report.Rows.Add(newrow);
-                    DataRow newrow1 = Report.NewRow();
-                    newrow1["BranchName"] = "SVDS";
-                    newrow1["sno"] = "8012";
-                    Report.Rows.Add(newrow1);
-                    DataRow newrow2 = Report.NewRow();
-                    newrow2["BranchName"] = "SVF";
-                    newrow2["sno"] = "8013";
-                    Report.Rows.Add(newrow2);
-                    foreach (DataRow dr in Report.Rows)
-                    {
-                        SoClass GetSoClass = new SoClass();
-                        GetSoClass.Sno = dr["sno"].ToString();
-                        GetSoClass.BranchName = dr["BranchName"].ToString();
-                        Solist.Add(GetSoClass);
-                    }
-                }
-                else if (SelecteType == "SVDS")
+                 if (SelecteType == "NLR")
                 {
                     cmd = new MySqlCommand("SELECT  branchdata.BranchName, branchdata.sno FROM  branchmappingtable INNER JOIN branchdata ON branchmappingtable.SubBranch = branchdata.sno WHERE (branchmappingtable.SuperBranch = @Branchid)");
                     cmd.Parameters.AddWithValue("@Branchid", "8012");
@@ -22057,20 +22038,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                         Solist.Add(GetSoClass);
                     }
                 }
-                else if (SelecteType == "SVF")
-                {
-
-                    cmd = new MySqlCommand("SELECT  branchdata.BranchName, branchdata.sno FROM  branchmappingtable INNER JOIN branchdata ON branchmappingtable.SubBranch = branchdata.sno WHERE (branchmappingtable.SuperBranch = @Branchid)");
-                    cmd.Parameters.AddWithValue("@Branchid", "8013");
-                    DataTable dtBranch = vdbmngr.SelectQuery(cmd).Tables[0];
-                    foreach (DataRow dr in dtBranch.Rows)
-                    {
-                        SoClass GetSoClass = new SoClass();
-                        GetSoClass.Sno = dr["sno"].ToString();
-                        GetSoClass.BranchName = dr["BranchName"].ToString();
-                        Solist.Add(GetSoClass);
-                    }
-                }
+                
             }
             else if (LevelType == "Admin" || LevelType == "MAdmin")
             {
@@ -31274,7 +31242,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                                     {
                                         string phonenumber = drmobile["PhoneNumber"].ToString();
                                         WebClient client = new WebClient();
-                                        if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                        if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                         {
                                             //string baseurl = "http://103.225.76.43/blank/sms/user/urlsmstemp.php?username=vyshnavidairy&pass=vyshnavi@123&senderid=VYSHRM&dest_mobileno=" + phonenumber + "&message=Dear%20" + AgentName + "%20Your%20Incentive%20Amount%20Credeted%20for%20The%20Month%20Of%20%20" + strdate + "%20Amount%20is =" + PaidAmount + "&response=Y";
                                             //string baseurl = "http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VSALES&to=" + phonenumber + "&msg=%20" + AgentName + "%20Cheque%20Amount%20Collected%20for%20The%20Date%20Of%20%20" + from_date + "%20Amount%20is =" + BranchAmount + "&type=1";
@@ -31430,7 +31398,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                                 foreach (DataRow drmobile in dtmobileno.Rows)
                                 {
                                     string phonenumber = drmobile["PhoneNumber"].ToString();
-                                    if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                    if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                     {
                                         //string baseurl = "http://103.225.76.43/blank/sms/user/urlsmstemp.php?username=vyshnavidairy&pass=vyshnavi@123&senderid=VYSHRM&dest_mobileno=" + phonenumber + "&message=Dear%20" + BranchName + "%20Your%20Incentive%20Amount%20Credeted%20for%20The%20Month%20Of%20%20" + strdate + "%20Amount%20is =" + PaidAmount + "&response=Y";
                                         //string baseurl = "http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VSALES&to=" + phonenumber + "&msg=Dear%20" + AgentName + "%20Your%20BankTransfer%20Amount%20Credeted%20for%20The%20Date%20Of%20%20" + from_date + "%20Amount%20is =" + BranchAmount + "&type=1";
@@ -33195,7 +33163,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                                 try
                                 {
 
-                                    if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                    if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                     {
                                         WebClient client = new WebClient();
 
@@ -33408,7 +33376,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                                 {
                                     try
                                     {
-                                        if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                        if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                         {
                                             WebClient client = new WebClient();
                                             //http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VYSNVI&to=
@@ -33577,7 +33545,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                             {
                                 try
                                 {
-                                    if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                    if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                     {
                                         WebClient client = new WebClient();
                                         //http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VYSNVI&to=
@@ -34531,7 +34499,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                             {
                                 try
                                 {
-                                    if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                    if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                     {
                                         WebClient client = new WebClient();
                                         //http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VYSNVI&to=
@@ -34567,7 +34535,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                                 {
                                     try
                                     {
-                                        if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                        if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                         {
                                             WebClient client = new WebClient();
 
@@ -35506,7 +35474,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                     cmd.Parameters.AddWithValue("@DispMode", "Staff");
                     string TitleName = context.Session["TitleName"].ToString();
                     string BID = "";
-                    if (TitleName == "Sai Enterprises")
+                    if (TitleName == "SAI ENTERPRISES")
                     {
                         BID = "760";
                         cmd.Parameters.AddWithValue("@BranchID", BID);
@@ -35522,7 +35490,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                     cmd.Parameters.AddWithValue("@DispType", "Free");
                     cmd.Parameters.AddWithValue("@DispMode", "Free");
                     string TitleName = context.Session["TitleName"].ToString();
-                    if (TitleName == "Sai Enterprises")
+                    if (TitleName == "SAI ENTERPRISES")
                     {
                         cmd.Parameters.AddWithValue("@BranchID", context.Session["branch"].ToString());
                     }
@@ -38071,7 +38039,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
             if (mobileno.Length == 10)
             {
                 string Date = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
-                if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                 {
                     //http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VYSNVI&to=
 
@@ -38775,7 +38743,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                     if (MobNo.Length == 10)
                     {
                         string Date = DateTime.Now.ToString("dd/MM/yyyy");
-                        if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                        if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                         {
                             WebClient client = new WebClient();
                             //http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VYSNVI&to=
@@ -38828,7 +38796,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                                 if (PhoneNumber.Length == 10)
                                 {
                                     string Date = DateTime.Now.ToString("dd/MM/yyyy");
-                                    if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                    if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                     {
                                         WebClient client = new WebClient();
 
@@ -38931,7 +38899,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                     prevsubdiff = Math.Round(SubCategoryTotalQty - PreviousSubTotalQty);
                     if (MobNo.Length == 10)
                     {
-                        if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                        if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                         {
                             WebClient client1 = new WebClient();
                             //http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VYSNVI&to=
@@ -38978,7 +38946,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                                 string PhoneNumber = dr["Mobno"].ToString();
                                 if (PhoneNumber.Length == 10)
                                 {
-                                    if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                    if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                     {
                                         WebClient client1 = new WebClient();
 
@@ -39484,7 +39452,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                     }
                     if (MobNo.Length == 10)
                     {
-                        if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                        if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                         {
                             WebClient client2 = new WebClient();
                             //http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VYSNVI&to=
@@ -39533,7 +39501,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                                 string PhoneNumber = dr["Mobno"].ToString();
                                 if (PhoneNumber.Length == 10)
                                 {
-                                    if (context.Session["TitleName"].ToString() == "Sai Enterprises")
+                                    if (context.Session["TitleName"].ToString() == "SAI ENTERPRISES")
                                     {
                                         WebClient client2 = new WebClient();
                                         //http://www.smsstriker.com/API/sms.php?username=vaishnavidairy&password=vyshnavi@123&from=VYSNVI&to=

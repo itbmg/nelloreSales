@@ -84,7 +84,7 @@
             <div id="divPrint">
                 <div style="width: 100%;">
                     <div style="width: 11%; float: left;">
-                        <img src="Images/Vyshnavilogo.png" alt="Sai Enterprises" width="95px" height="90px" />
+                        <img src="Images/Vyshnavilogo.png" alt="SAI ENTERPRISES" width="95px" height="90px" />
                         <%--  <img src="Images/VLogo.png" width="100" height="80" />--%>
                     </div>
                     <div style="left: 0%; text-align: center;">

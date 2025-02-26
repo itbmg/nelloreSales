@@ -493,7 +493,7 @@ Ref No
                <div id="divPrint" style="display:none;font-family: initial;">
                 <div style="border: 2px solid gray;" class="col-md-12">
                     <div  style="width: 13%; float: left;">
-                        <img src="Images/Vyshnavilogo.png" alt="Sai Enterprises" width="60px" height="60px" />
+                        <img src="Images/Vyshnavilogo.png" alt="SAI ENTERPRISES" width="60px" height="60px" />
                         <br />
                     </div>
                    
@@ -604,7 +604,7 @@ Ref No
                                     <br />
                                     </div>
                     <div style="text-align: center;">
-                     <label>* Thank you for shopping with VYSHNAVI *</label>
+                     <label>* Thank you for shopping *</label>
                     </div>
                 </div>
  <button type="button" class="btn btn-primary" style="margin-right: 5px;" onclick="javascript:CallPrint('divPrint');"><i class="fa fa-print"></i> Print </button>

@@ -56,7 +56,7 @@ public partial class ForgetPassWord : System.Web.UI.Page
                     Msg.To.Add(new MailAddress(emailid));
                     // Subject of e-mail
                     Msg.Subject = "Forgot Password Information";
-                    Msg.Body += "Welcome to Sai Enterprises<br/><br/>";
+                    Msg.Body += "Welcome to SAI ENTERPRISES<br/><br/>";
                     Msg.Body += "Username: " + dt.Rows[0]["UserName"] + "<br><br>Password: " + dt.Rows[0]["Password"] + "<br><br>";
                     Msg.IsBodyHtml = true;
                     string sSmtpServer = "";

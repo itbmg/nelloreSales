@@ -103,7 +103,7 @@
                                         <asp:Panel ID="Panel1" runat="server">
                                             <asp:DropDownList ID="ddlcompny" runat="server" CssClass="form-control" >
                                             <asp:ListItem Value="ALL">ALL</asp:ListItem>
-                                            <asp:ListItem Value="1">SVDS</asp:ListItem>
+                                            <asp:ListItem Value="1">NLR</asp:ListItem>
                                             <asp:ListItem Value="2">SVD</asp:ListItem>
                                             <asp:ListItem Value="3">SVF</asp:ListItem>
                                             </asp:DropDownList>
@@ -165,7 +165,7 @@
                             <div id="divPrint">
                                 <div style="width: 100%;">
                                     <div style="width: 11%; float: left;">
-                                        <img src="Images/Vyshnavilogo.png" alt="Sai Enterprises" width="100px"
+                                        <img src="Images/Vyshnavilogo.png" alt="SAI ENTERPRISES" width="100px"
                                             height="72px" />
                                     </div>
                                     <div style="left: 0%; text-align: center;">

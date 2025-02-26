@@ -49,7 +49,7 @@ public class exporttoxl_utility : IHttpHandler, System.Web.SessionState.IRequire
                 Date = context.Session["date"].ToString();
             }
 
-            string title = "Sai Enterprises";
+            string title = "SAI ENTERPRISES";
             if (context.Session["title"] != null)
             {
                 title = context.Session["title"].ToString();
@@ -78,7 +78,7 @@ public class exporttoxl_utility : IHttpHandler, System.Web.SessionState.IRequire
             {
                 SalesMan = context.Session["UserName"].ToString();
             }
-            string title = "Sai Enterprises";
+            string title = "SAI ENTERPRISES";
             if (context.Session["title"] != null)
             {
                 title = context.Session["title"].ToString();

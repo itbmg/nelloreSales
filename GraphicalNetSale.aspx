@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="icon" href="Images/Vyshnavilogo.png" type="image/x-icon" title=BMG />
-    <title>Sai Enterprises </title>
+    <title>SAI ENTERPRISES </title>
     <link rel="stylesheet" href="css/style.css?v=1113" type="text/css" media="all" />
     <script src="js/jquery-1.4.4.js" type="text/javascript"></script>
     <script src="Kendo/jquery.min.js" type="text/javascript"></script>
@@ -107,7 +107,7 @@ table#tableaProductdetails {
         //            });
         //        }
         function FillPlant() {
-            var data = { 'operation': 'GetSalesOffices', 'SelecteType': 'SVDS' };
+            var data = { 'operation': 'GetSalesOffices', 'SelecteType': 'NLR' };
             var s = function (msg) {
                 if (msg) {
                     if (msg == "Session Expired") {
@@ -2183,14 +2183,14 @@ table#tableaProductdetails {
     <div class="box-body">
         <div class="box box-info">
             <div style="width: 13%; float: left;">
-                <img src="Images/Vyshnavilogo.png" alt="Sai Enterprises" width="95px" height="90px" />
+                <img src="Images/Vyshnavilogo.png" alt="SAI ENTERPRISES" width="95px" height="90px" />
             </div>
             <div style="padding-left: 24%;">
                 <asp:Label ID="lblTitle" runat="server" Font-Bold="true" Font-Size="30px"
                     Font-Names="'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif" ForeColor="#0252aa" Text=""></asp:Label>
                 <div style="float: right; padding-top: 12px;">
                     <a href="Delivery_Collection_Report.aspx" title="Go To Home Page">
-                        <img src="Images/home.png" alt="Sai Enterprises" width="70px" height="62px" /></a>
+                        <img src="Images/home.png" alt="SAI ENTERPRISES" width="70px" height="62px" /></a>
                 </div>
                 <br />
                 <br />

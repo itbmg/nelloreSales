@@ -417,17 +417,17 @@ public partial class Tally_BiproductsSales : System.Web.UI.Page
 
                             if (fromdate.Month > 3)
                             {
-                                PlantDCNo = "SVDS" + "/" + dtapril.ToString("yy") + "-" + dtmarch.ToString("yy") + "N/" + PlantDCNo;
+                                PlantDCNo = "NLR" + "/" + dtapril.ToString("yy") + "-" + dtmarch.ToString("yy") + "N/" + PlantDCNo;
                             }
                             else
                             {
                                 if (fromdate.Month <= 3)
                                 {
-                                    PlantDCNo = "SVDS" + "/" + dtapril.ToString("yy") + "-" + dtmarch.ToString("yy") + "N/" + PlantDCNo;
+                                    PlantDCNo = "NLR" + "/" + dtapril.ToString("yy") + "-" + dtmarch.ToString("yy") + "N/" + PlantDCNo;
                                 }
                                 else
                                 {
-                                    PlantDCNo = "SVDS" + "/" + dtapril.AddYears(-1).ToString("yy") + "-" + dtmarch.AddYears(-1).ToString("yy") + "N/" + PlantDCNo;
+                                    PlantDCNo = "NLR" + "/" + dtapril.AddYears(-1).ToString("yy") + "-" + dtmarch.AddYears(-1).ToString("yy") + "N/" + PlantDCNo;
                                 }
                             }
 
@@ -775,17 +775,17 @@ public partial class Tally_BiproductsSales : System.Web.UI.Page
 
                             if (fromdate.Month > 3)
                             {
-                                PlantDCNo = "SVDS" + "/" + dtapril.ToString("yy") + "-" + dtmarch.ToString("yy") + "T/" + PlantDCNo;
+                                PlantDCNo = "NLR" + "/" + dtapril.ToString("yy") + "-" + dtmarch.ToString("yy") + "T/" + PlantDCNo;
                             }
                             else
                             {
                                 if (fromdate.Month <= 3)
                                 {
-                                    PlantDCNo = "SVDS" + "/" + dtapril.ToString("yy") + "-" + dtmarch.ToString("yy") + "T/" + PlantDCNo;
+                                    PlantDCNo = "NLR" + "/" + dtapril.ToString("yy") + "-" + dtmarch.ToString("yy") + "T/" + PlantDCNo;
                                 }
                                 else
                                 {
-                                    PlantDCNo = "SVDS" + "/" + dtapril.AddYears(-1).ToString("yy") + "-" + dtmarch.AddYears(-1).ToString("yy") + "T/" + PlantDCNo;
+                                    PlantDCNo = "NLR" + "/" + dtapril.AddYears(-1).ToString("yy") + "-" + dtmarch.AddYears(-1).ToString("yy") + "T/" + PlantDCNo;
                                 }
                             }
                             // DCNO = Branchcode + "/" + dtapril.ToString("yy") + "-" + dtmarch.ToString("yy") + "T/" + DCNO;

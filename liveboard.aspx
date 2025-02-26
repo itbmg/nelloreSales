@@ -60,13 +60,13 @@
 
 
            $('#spnDispatchQty').css('display', 'none');
-           $('#spnSvdsCompany').css('display', 'none');
+           $('#spnNLRCompany').css('display', 'none');
            $('#spnSvfCompany').css('display', 'none');
            $('#spnMilkDispatchQty').css('display', 'none');
            $('#spnCurdDispatchQty').css('display', 'none');
            $('#spnOthersDispatchQty').css('display', 'none');
            $('#spnDispatchQty').css('display', 'none');
-           $('#spnSvdsCompany').css('display', 'none');
+           $('#spnNLRCompany').css('display', 'none');
            $('#spnSvfCompany').css('display', 'none');
            $('#spnSaleValue').css('display', 'none');
            $('#spnSaleValue').css('display', 'none');
@@ -378,7 +378,7 @@
                    document.getElementById('spnothersid').innerHTML = "Other Qty";
 
                    $('#spnDispatchQty').css('display', 'none');
-                   $('#spnSvdsCompany').css('display', 'none');
+                   $('#spnNLRCompany').css('display', 'none');
                    $('#spnSvfCompany').css('display', 'none');
                    $('#spnSaleValue').css('display', 'none');
                    $('#spnCollection').css('display', 'none');
@@ -402,7 +402,7 @@
                    document.getElementById('spnothersid').innerHTML = "Other Value";
 
                    $('#spnDispatchQty').css('display', 'none');
-                   $('#spnSvdsCompany').css('display', 'none');
+                   $('#spnNLRCompany').css('display', 'none');
                    $('#spnSvfCompany').css('display', 'none');
                    $('#spnSaleValue').css('display', 'none');
                    $('#spnSaleValue').css('display', 'none');
@@ -2698,13 +2698,13 @@
                $('#tidcategory').css('display', 'none');
 
                $('#spnDispatchQty').css('display', 'none');
-               $('#spnSvdsCompany').css('display', 'none');
+               $('#spnNLRCompany').css('display', 'none');
                $('#spnSvfCompany').css('display', 'none');
                $('#spnMilkDispatchQty').css('display', 'none');
                $('#spnCurdDispatchQty').css('display', 'none');
                $('#spnOthersDispatchQty').css('display', 'none');
                $('#spnDispatchQty').css('display', 'none');
-               $('#spnSvdsCompany').css('display', 'none');
+               $('#spnNLRCompany').css('display', 'none');
                $('#spnSvfCompany').css('display', 'none');
                $('#spnSaleValue').css('display', 'none');
                $('#spnSaleValue').css('display', 'none');
@@ -2722,7 +2722,7 @@
                $('#spnOthersDispatchQty').css('display', 'block');
 
                $('#spnDispatchQty').css('display', 'none');
-               $('#spnSvdsCompany').css('display', 'none');
+               $('#spnNLRCompany').css('display', 'none');
                $('#spnSvfCompany').css('display', 'none');
                $('#spnSaleValue').css('display', 'none');
                $('#spnCollection').css('display', 'none');
@@ -2745,19 +2745,19 @@
 
                if (planttype == "8009") {
                    $('#spnDispatchQty').css('display', 'none');
-                   $('#spnSvdsCompany').css('display', 'none');
+                   $('#spnNLRCompany').css('display', 'none');
                    $('#spnSvfCompany').css('display', 'none');
                    $('#spnSaleValue').css('display', 'none');
                }
                if (planttype == "8012") {
                    $('#spnDispatchQty').css('display', 'none');
-                   $('#spnSvdsCompany').css('display', 'none');
+                   $('#spnNLRCompany').css('display', 'none');
                    $('#spnSvfCompany').css('display', 'none');
                    $('#spnSaleValue').css('display', 'none');
                }
                if (planttype == "8013") {
                    $('#spnDispatchQty').css('display', 'none');
-                   $('#spnSvdsCompany').css('display', 'none');
+                   $('#spnNLRCompany').css('display', 'none');
                    $('#spnSvfCompany').css('display', 'none');
                    $('#spnSaleValue').css('display', 'none');
                }
@@ -2830,7 +2830,7 @@
                                 <tr>
                                     <td style="width: 130px;">
                                         <asp:DropDownList ID="ddltype" runat="server" CssClass="form-control" onchange="bindplantdetails()">
-                                            <asp:ListItem Value="Vyshnavi Group" Text="Vyshnavi Group">Vyshnavi Group</asp:ListItem>
+                                            <asp:ListItem Value="Group" Text="Group">Group</asp:ListItem>
                                         </asp:DropDownList>
                                     </td>
                                     <td style="width: 2%;">
@@ -2935,11 +2935,11 @@
                                                         OnClick="LinkButton_Click" runat="server">Group Dispatchqty<i class="fa fa-arrow-circle-right"></i></asp:LinkButton>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 col-xs-6" id="spnSvdsCompany" style="width: 30%;">
+                                            <div class="col-lg-3 col-xs-6" id="spnNLRCompany" style="width: 30%;">
                                                 <!-- small box -->
                                                 <div class="small-box bg-aqua">
                                                     <div class="inner">
-                                                        <asp:Label ID="lblSvdsdispatch" runat="server" Text="0" CssClass="h3"> </asp:Label>
+                                                        <asp:Label ID="lblNLRdispatch" runat="server" Text="0" CssClass="h3"> </asp:Label>
                                                         <%-- <h3 id="hdispatchqty"> 
                                                             0
                                                         </h3>--%>
@@ -2951,8 +2951,8 @@
                                                     </div>
                                                     <%--<a href="#datagrid" class="small-box-footer" onclick="branchwisedispqty();" data-toggle="modal"
                                                         data-target="#myModal">BranchWise Dispatchqty </a>--%>
-                                                    <asp:LinkButton ID="LinkButton2" Text="SVDS Dispatch Qty" CssClass="small-box-footer"
-                                                        OnClick="LinkButton_Click" runat="server">SVDS Dispatch Qty<i class="fa fa-arrow-circle-right"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="LinkButton2" Text="NLR Dispatch Qty" CssClass="small-box-footer"
+                                                        OnClick="LinkButton_Click" runat="server">NLR Dispatch Qty<i class="fa fa-arrow-circle-right"></i></asp:LinkButton>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-xs-6" id="spnSvfCompany" style="width: 30%;">

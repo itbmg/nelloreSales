@@ -380,7 +380,7 @@
                         document.getElementById('spnEnterdDate').innerHTML = ewb_date;
                         document.getElementById('spnEnterBy').innerHTML = GeneratedBy;
 
-                        document.getElementById('spnTransPortName').innerHTML = "Vyshnavi Foods";
+                        document.getElementById('spnTransPortName').innerHTML = "Foods";
                         document.getElementById('spnTransPortDate').innerHTML = ewb_date;
 
                         $("#divPrint").css("display", "block");
@@ -725,7 +725,7 @@
                                 <div class="content">
                                     <div style="border: 2px solid gray;">
                                         <div style="width: 22%; float: right; padding-top: 5px;">
-                                            <%--<img src="Images/Vyshnavilogo.png" alt="Sai Enterprises" width="100px" height="72px" />
+                                            <%--<img src="Images/Vyshnavilogo.png" alt="SAI ENTERPRISES" width="100px" height="72px" />
                                                 <br />--%>
                                             <div id="image"></div>
                                             <br />

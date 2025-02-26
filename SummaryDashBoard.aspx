@@ -47,9 +47,7 @@
                     <tr>
                         <td style="width: 130px;">
                             <select id="ddlType" class="form-control" onchange="ddlTypeChange(this);">
-                                <option>Vyshnavi Group</option>
-                                <option>SVDS</option>
-                                <option>SVF</option>
+                                <option>NLR</option>
                                 <option>Plant Wise</option>
                             </select>
                         </td>

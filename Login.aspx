@@ -3,8 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link rel="icon" href="Images/Vyshnavilogo.PNG" type="image/x-icon" title=Sai Enterprises />
-    <title>Sai Enterprises </title>
+    <link rel="icon" href="Images/Vyshnavilogo.PNG" type="image/x-icon" title=SAI ENTERPRISES />
+    <title>SAI ENTERPRISES </title>
     <script type="text/javascript" src="js/jquery-1.4.4.js"></script>
     <link href="Styles/login.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
@@ -52,7 +52,12 @@
 <body>
     <form id="form1" runat="server">
         <section class="container">
-            <div class="login" id="content_left" style="top: 6%; position: absolute; z-index: 99;background-color: aliceblue;"
+             <div class="title" style="margin-left:-23%; width: 100%;">
+                <img src="Images/Vyshnavilogo.png" height="150px" width="150px" />
+                <br />
+                <span>SAI ENTERPRISES</span>
+            </div>
+            <div class="login" id="content_left" style="top: 28%; position: absolute; z-index: 99;background-color: aliceblue;"
                 align="center">
                 <p>
                     <asp:TextBox name="txtUserName" type="text" ID="txtUserName" runat="server" placeholder="Enter UserName" />

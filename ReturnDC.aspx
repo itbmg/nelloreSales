@@ -135,7 +135,7 @@
                                 <div id="divPrint">
                                     <div style="width: 100%;">
                                         <div style="width: 13%; float: left;">
-                                            <img src="Images/Vyshnavilogo.png" alt="Sai Enterprises" width="95px" height="90px" />
+                                            <img src="Images/Vyshnavilogo.png" alt="SAI ENTERPRISES" width="95px" height="90px" />
                                         </div>
                                         <div style="width: 86%; float: right; text-align: center;">
                                             <asp:Label ID="lblTitle" runat="server" Font-Bold="true" Font-Size="26px" ForeColor="#0252aa"

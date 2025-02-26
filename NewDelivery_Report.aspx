@@ -436,7 +436,7 @@
                         <div id="divPrint">
                             <div style="width: 100%;">
                                 <div style="width: 11%; float: left;">
-                                    <img src="Images/Vyshnavilogo.png" alt="Sai Enterprises" width="95px" height="90px" />
+                                    <img src="Images/Vyshnavilogo.png" alt="SAI ENTERPRISES" width="95px" height="90px" />
                                 </div>
                                 <div style="left: 0%; text-align: center;">
                                     <label id="lblTitle"  style="color:#0252AA;font-size:20px;font-weight:bold;"></label>

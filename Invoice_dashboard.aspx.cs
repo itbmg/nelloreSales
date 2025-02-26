@@ -318,7 +318,7 @@ public partial class Invoice_dashboard : System.Web.UI.Page
                     string companyname = "";
                     if (companycode == "1")
                     {
-                        companyname = "SVDS";
+                        companyname = "NLR";
                     }
                     else if (companycode == "2")
                     {

@@ -184,7 +184,8 @@
                         document.getElementById('lblvendoremail').innerHTML = msg[0].email;
                     }
                     else {
-                        document.getElementById('lblpartyname').innerHTML = msg[0].Title + "-" + msg[0].partyname;
+                       /// document.getElementById('lblpartyname').innerHTML = msg[0].Title + "-" + msg[0].partyname;
+                        document.getElementById('lblpartyname').innerHTML = "SAI ENTERPRICES -" + msg[0].partyname;
                         document.getElementById('span_toGSTIN').innerHTML = msg[0].togstin;
                         document.getElementById('lblvendorphoneno').innerHTML = msg[0].phoneno;
                         document.getElementById('spn_toaddress').innerHTML = msg[0].AgentAddress;
@@ -446,7 +447,7 @@
                     <div class="content">
                         <div style="border: 2px solid gray;" class="col-md-12">
                             <div style="width: 17%; float: right; padding-top: 12px;">
-                                <img src="Images/Vyshnavilogo.png" alt="Sai Enterprises" width="100px" height="72px" />
+                                <img src="Images/Vyshnavilogo.png" alt="SAI ENTERPRISES" width="100px" height="72px" />
                                 <br />
                             </div>
                             <div style="border: 1px solid gray;">

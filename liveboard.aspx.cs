@@ -49,31 +49,7 @@ public partial class liveboard : System.Web.UI.Page
         {
             if (GroupLogin == "1")
             {
-                if (SelecteType == "Vyshnavi Group")
-                {
-                    Report.Columns.Add("Sno");
-                    Report.Columns.Add("BranchName");
-                    DataRow newrow = Report.NewRow();
-                    newrow["BranchName"] = "GroupWise";
-                    newrow["sno"] = "8009";
-                    Report.Rows.Add(newrow);
-                    DataRow newrow1 = Report.NewRow();
-                    newrow1["BranchName"] = "SVDS";
-                    newrow1["sno"] = "8012";
-                    Report.Rows.Add(newrow1);
-                    DataRow newrow2 = Report.NewRow();
-                    newrow2["BranchName"] = "SVF";
-                    newrow2["sno"] = "8013";
-                    Report.Rows.Add(newrow2);
-                    if (Report.Rows.Count > 0)
-                    {
-                        ddlPlant.DataSource = Report;
-                        ddlPlant.DataValueField = "sno";
-                        ddlPlant.DataTextField = "BranchName";
-                        ddlPlant.DataBind();
-                    }
-                }
-                else if (SelecteType == "SVDS")
+                if (SelecteType == "NLR")
                 {
 
                     cmd = new MySqlCommand("SELECT  branchdata.BranchName, branchdata.sno FROM  branchmappingtable INNER JOIN branchdata ON branchmappingtable.SubBranch = branchdata.sno WHERE (branchmappingtable.SuperBranch = @Branchid)");
@@ -87,19 +63,7 @@ public partial class liveboard : System.Web.UI.Page
                         ddlPlant.DataBind();
                     }
                 }
-                else if (SelecteType == "SVF")
-                {
-                    cmd = new MySqlCommand("SELECT  branchdata.BranchName, branchdata.sno FROM  branchmappingtable INNER JOIN branchdata ON branchmappingtable.SubBranch = branchdata.sno WHERE (branchmappingtable.SuperBranch = @Branchid)");
-                    cmd.Parameters.AddWithValue("@Branchid", "8013");
-                    DataTable dtBranch = vdbmngr.SelectQuery(cmd).Tables[0];
-                    if (dtBranch.Rows.Count > 0)
-                    {
-                        ddlPlant.DataSource = dtBranch;
-                        ddlPlant.DataValueField = "sno";
-                        ddlPlant.DataTextField = "BranchName";
-                        ddlPlant.DataBind();
-                    }
-                }
+                
             }
         }
         else if (LevelType == "Admin" || LevelType == "MAdmin")
@@ -164,13 +128,13 @@ public partial class liveboard : System.Web.UI.Page
                 spnamount.Visible = true;
                 lbldispatchqty.Visible = false;
                 lblSvfdispatch.Visible = false;
-                lblSvdsdispatch.Visible = false;
+                lblNLRdispatch.Visible = false;
             }
             else if (barnchCategory == "BranchWiseDespatch")
             {
                 lbldispatchqty.Visible = true;
                 lblSvfdispatch.Visible = true;
-                lblSvdsdispatch.Visible = true;
+                lblNLRdispatch.Visible = true;
                 hsalevalue.Visible = false;
                 hduevalue.Visible = false;
                 spnamount.Visible = false;
@@ -560,7 +524,7 @@ public partial class liveboard : System.Web.UI.Page
                 cmd.Parameters.AddWithValue("@d2", GetHighDate(Selectedtodate));
                 dtbranches_indent_sale = vdbmngr.SelectQuery(cmd).Tables[0];
             }
-            double SvdsDespatchQty = 0; double SvfDespatchQty = 0;
+            double NLRDespatchQty = 0; double SvfDespatchQty = 0;
             double GroupTotDispQty = 0; double GroupTotSaleValue = 0;
             double GroupTotCollectionValue = 0; //double temptotsalevalue = 0;
             foreach (DataRow dr1 in dtDispatchesbranches.Rows)
@@ -577,7 +541,7 @@ public partial class liveboard : System.Web.UI.Page
                     double.TryParse(dr1["dispatchqty"].ToString(), out temp_tdispqtyqty);
                     double avg_qty = temp_tdispqtyqty / 2;
                     //totaldummy["Total Dispatch"] = Math.Round(avgqty );
-                    SvdsDespatchQty += avg_qty;
+                    NLRDespatchQty += avg_qty;
 
                 }
                 if (dr1["Branch_id"].ToString() == "7" || dr1["Branch_id"].ToString() == "4626")
@@ -1140,9 +1104,9 @@ public partial class liveboard : System.Web.UI.Page
             hsalevalue.InnerHtml = totSaleValue.ToString();
             spnamount.InnerHtml = GroupTotCollectionValue.ToString();
             hduevalue.InnerHtml = GroupDueAmount.ToString();
-            SvdsDespatchQty = Math.Round(SvdsDespatchQty);
+            NLRDespatchQty = Math.Round(NLRDespatchQty);
             SvfDespatchQty = Math.Round(SvfDespatchQty);
-            lblSvdsdispatch.Text = SvdsDespatchQty.ToString() + " Ltrs";
+            lblNLRdispatch.Text = NLRDespatchQty.ToString() + " Ltrs";
             lblSvfdispatch.Text = SvfDespatchQty.ToString() + " Ltrs";
 
             grdbranchwisedispatch.DataSource = approval;
@@ -1167,7 +1131,7 @@ public partial class liveboard : System.Web.UI.Page
             GridViewRow row2 = grdbranchwisedispatch.Rows[5];
             string BranchID = row.Cells[2].Text;
             string Type1 = row.Cells[3].Text;
-            string SVDS = row1.Cells[2].Text;
+            string NLR = row1.Cells[2].Text;
             string SVF = row2.Cells[2].Text;
             Session["ClickBranchid"] = BranchID;
             string Type = ddltype.SelectedItem.Value;
