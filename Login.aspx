@@ -55,7 +55,7 @@
              <div class="title" style="margin-left:-23%; width: 100%;">
                 <img src="Images/Vyshnavilogo.png" height="150px" width="150px" />
                 <br />
-                <span>SAI ENTERPRISES</span>
+                <span style="font-size:28px;">SAI ENTERPRISES</span>
             </div>
             <div class="login" id="content_left" style="top: 28%; position: absolute; z-index: 99;background-color: aliceblue;"
                 align="center">

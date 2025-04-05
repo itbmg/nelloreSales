@@ -15633,7 +15633,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                         tostate = dr["stateid"].ToString();
                         assigndate = dr["AssignDate"].ToString();
                         GetDetails.vehicleno = dr["VehicleNo"].ToString();
-                        DispatchName = dr["DispatchName"].ToString(); partyname
+                        DispatchName = dr["DispatchName"].ToString(); 
                         GetDetails.Refdcno = dr["Sno"].ToString();
                         GetDetails.Dispatchsno = dr["dispsno"].ToString();
                         Employeename = dr["Employee"].ToString();
@@ -15914,6 +15914,7 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                         GetDetails.fromstatecode = context.Session["statecode"].ToString();
                         GetDetails.fromgstin = context.Session["gstin"].ToString();
                         GetDetails.branchname = context.Session["branchname"].ToString();
+                        GetDetails.Title = dtbranchaddress.Rows[0]["BranchName"].ToString();
                     }
                     GetDetails.DcNo = DcNo;
                     DateTime dtassigndate = Convert.ToDateTime(assigndate);
@@ -15949,7 +15950,10 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                     string address = dtbranchaddress.Rows[0]["doorno"].ToString() + "," + dtbranchaddress.Rows[0]["street"].ToString() + "," + dtbranchaddress.Rows[0]["area"].ToString() + "," + dtbranchaddress.Rows[0]["mandal"].ToString() + "," + dtbranchaddress.Rows[0]["city"].ToString() + "," + dtbranchaddress.Rows[0]["district"].ToString() + " District -" + dtbranchaddress.Rows[0]["pincode"].ToString();
                     GetDetails.Address = address;//dtagentaddress.Rows[0]["Address"].ToString();
                 }
-                GetDetails.Title = context.Session["TitleName"].ToString();
+                if (context.Session["branch"].ToString() != "12")
+                {
+                    GetDetails.Title = context.Session["TitleName"].ToString();
+                }
                 GetDetails.tinNo = context.Session["TinNo"].ToString();
                 DcDetailslist.Add(GetDetails);
                 string response = GetJson(DcDetailslist);

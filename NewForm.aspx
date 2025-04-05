@@ -456,10 +456,10 @@
                         return false;
                     }
                     faaccuntno = document.getElementById('ddlfaaccno').value;
-                    if (faaccuntno == "" || faaccuntno == "select account number") {
-                        alert("Select account number");
-                        return false;
-                    }
+                    //if (faaccuntno == "" || faaccuntno == "select account number") {
+                    //    alert("Select account number");
+                    //    return false;
+                    //}
                 }
                 if (paymenttype == "DD") {
                     txtChequeNo = document.getElementById('txtChequeNo').value;
