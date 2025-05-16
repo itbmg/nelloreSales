@@ -760,7 +760,6 @@ j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; 
                                             <li id="libranchdueconsolidatedetails"><a href="Periodic_Due_Report.aspx">AgentWise Periodic Due</a></li>
                                             <li id="libranchdueSummary"><a href="Branchwise_due_summary.aspx">Branch Wise Due Summary</a></li>
                                             <li id="li70"><a href="BranchWiseIndent.aspx">AgentWise Indent Comparison</a></li>
-                                            <li id="libranchInvduedetails"><a href="Agent_Inv_Due_Details.aspx">AgentWise Inv Due Report</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -940,8 +939,11 @@ j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; 
                                 </i>&nbsp Inventory</a>
                                     <div class="drop3">
                                         <ul id="ul3">
+                                            <li id="libranchInvduedetails"><a href="Agent_Inv_Due_Details.aspx">AgentWise Inv Due Report</a></li>
+                                            <li id="li172"><a href="AgentWiseInventory.aspx">Agent Inventory Statement</a></li>
+
                                             <li id="liinventoryreport"><a href="InventoryReport.aspx">Inventory Details</a></li>
-                                            <li id="lidaywiseinventory"><a href="CratesReport.aspx">Day Wise Inventory Transactions</a></li>
+                                           <%-- <li id="lidaywiseinventory"><a href="CratesReport.aspx">Day Wise Inventory Transactions</a></li>
                                             <li id="limonthlyroutewisecratesreport"><a href="MonthlyRouteWiseCratesReport.aspx">
                                                 Monthly Route Wise Inventory Transactions</a></li>
                                             <li id="liroutewisetransaction"><a href="RouteWiseCratesReport.aspx">Route Wise Inventory
@@ -949,9 +951,8 @@ j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; 
                                             <li id="lidispatchwiseinventory"><a href="PuffWiseInventory.aspx">Dispatch Wise Inventory
                                                 Transactions</a></li>
                                             <li id="li13"><a href="DayWisePuffInventory.aspx">Day Wise Puff Inventory</a></li>
-                                            <li id="li172"><a href="InventarySummary.aspx">InventarySummary</a></li>
                                             <li id="li167"><a href="InventaryDetails.aspx">InventaryClassification</a></li>
-                                            <li id="li168"><a href="InventaryMoniter.aspx">DirectSalesInventary</a></li>
+                                            <li id="li168"><a href="InventaryMoniter.aspx">DirectSalesInventary</a></li>--%>
                                         </ul>
                                     </div>
                                 </li>

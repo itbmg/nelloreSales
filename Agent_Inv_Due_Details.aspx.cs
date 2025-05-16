@@ -174,8 +174,8 @@ public partial class Agent_Inv_Due_Details : System.Web.UI.Page
             }
             lblDate.Text = fromdate.ToString("dd/MMM/yyyy");
             Session["filename"] = "AGENT WISE DUE REPORT";
-            string BranchID = ddlSalesOffice.SelectedValue; 
-            string Invsno = ddlInvtory.SelectedValue; 
+            string BranchID = ddlSalesOffice.SelectedValue;
+            string Invsno = ddlInvtory.SelectedValue;
             if (BranchID == "7")
             {
                 cmd = new MySqlCommand("SELECT  modifiedroutes.RouteName, modifiedroutes.sno as routeid,  modifiedroutesubtable.BranchID,       branchdata.BranchName  FROM    modifiedroutes        INNER JOIN    modifiedroutesubtable ON modifiedroutes.Sno = modifiedroutesubtable.RefNo        INNER JOIN    branchdata ON modifiedroutesubtable.BranchID = branchdata.sno  WHERE      (modifiedroutes.BranchID = @BranchID)AND(modifiedroutesubtable.EDate IS NULL)AND(modifiedroutesubtable.CDate <= @starttime) AND (branchdata.flag=@flag) and modifiedroutes.sno not in('42','28','41','33','32','31','34','25','36','5')  OR (modifiedroutes.BranchID = @BranchID)AND(modifiedroutesubtable.EDate > @starttime)AND(modifiedroutesubtable.CDate <= @starttime) AND (branchdata.flag=@flag) and modifiedroutes.sno not in('42','28','41','33','32','31','34','25','36','5') GROUP BY branchdata.BranchName  ORDER BY modifiedroutes.RouteName");
@@ -183,7 +183,7 @@ public partial class Agent_Inv_Due_Details : System.Web.UI.Page
                 cmd.Parameters.AddWithValue("@flag", "1");
                 cmd.Parameters.AddWithValue("@starttime", GetLowDate(fromdate.AddDays(-1)));
                 cmd.Parameters.AddWithValue("@endtime", GetHighDate(fromdate.AddDays(-1)));
-            } 
+            }
             else
             {
                 cmd = new MySqlCommand("SELECT  modifiedroutes.RouteName, modifiedroutes.sno as routeid,  modifiedroutesubtable.BranchID,       branchdata.BranchName  FROM    modifiedroutes        INNER JOIN    modifiedroutesubtable ON modifiedroutes.Sno = modifiedroutesubtable.RefNo        INNER JOIN    branchdata ON modifiedroutesubtable.BranchID = branchdata.sno  WHERE      (modifiedroutes.BranchID = @BranchID)AND(modifiedroutesubtable.EDate IS NULL)AND(modifiedroutesubtable.CDate <= @starttime) AND (branchdata.flag=@flag)  OR (modifiedroutes.BranchID = @BranchID)AND(modifiedroutesubtable.EDate > @starttime)AND(modifiedroutesubtable.CDate <= @starttime) AND (branchdata.flag=@flag) GROUP BY branchdata.BranchName  ORDER BY modifiedroutes.RouteName");
@@ -200,7 +200,7 @@ public partial class Agent_Inv_Due_Details : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@inv_sno", Invsno);
             DataTable dtagenttrans = vdm.SelectQuery(cmd).Tables[0];
 
-           
+
 
             DataTable dtrouteamount = new DataTable();
             DataTable dtsalescollection = new DataTable();
@@ -431,6 +431,30 @@ public partial class Agent_Inv_Due_Details : System.Web.UI.Page
             grdReports.DataSource = Report;
             grdReports.DataBind();
             Session["xportdata"] = Report;
+
+            //foreach (DataRow dr in Report.Rows)
+            //{
+            //    string agentID = dr["Agent Code"].ToString();
+            //    string closqty = dr["Closing Balance"].ToString();
+            //    if (agentID != null || agentID != "")
+            //    {
+            //        cmd = new MySqlCommand("UPDATE inventory_monitor set qty=@qty, status=@status WHERE inv_sno=@inv_sno AND branchid=@branchid");
+            //        cmd.Parameters.Add("@branchid", agentID);
+            //        cmd.Parameters.Add("@inv_sno", ddlInvtory.SelectedValue);
+            //        cmd.Parameters.Add("@qty", closqty);
+            //        cmd.Parameters.Add("@status", 1);
+            //        if (vdm.Update(cmd) == 0)
+            //        {
+            //            cmd = new MySqlCommand("Insert into inventory_monitor(Qty,Inv_Sno,BranchId) values(@Qty,@Inv_Sno,@BranchId)");
+            //            cmd.Parameters.AddWithValue("@Qty", closqty);
+            //            cmd.Parameters.AddWithValue("@Inv_Sno", ddlInvtory.SelectedValue);
+            //            cmd.Parameters.AddWithValue("@BranchId", agentID);
+            //            vdm.insert(cmd);
+            //        }
+
+            //    }
+            //}
+
         }
         catch (Exception ex)
         {

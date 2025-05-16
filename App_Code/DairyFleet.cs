@@ -1278,6 +1278,9 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
             DateTime ServerDateCurrentdate = VehicleDBMgr.GetTime(vdbmngr.conn);
             var title1 = context.Request.Params[1];
             Agent_Inv_Bal_Trans_Model obj = js.Deserialize<Agent_Inv_Bal_Trans_Model>(title1);
+            string closqty = "";
+            string inv_sno = "";
+            string AgentId = "";
             foreach (Agent_Inv_Bal_Trans o in obj.filldetails)
             {
                 DateTime dtIndent = Convert.ToDateTime(o.inddate);
@@ -1288,6 +1291,9 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                 cmd.Parameters.AddWithValue("@opp_balance", o.opp_balance);
                 cmd.Parameters.AddWithValue("@received", o.received);
                 cmd.Parameters.AddWithValue("@clo_balance", o.clo_balance);
+                closqty = o.clo_balance;
+                inv_sno = o.Inv_sno;
+                AgentId = o.AgentId;
                 cmd.Parameters.AddWithValue("@agentid", o.AgentId);
                 cmd.Parameters.AddWithValue("@sno", o.sno);
                 cmd.Parameters.AddWithValue("@createdate", ServerDateCurrentdate);
@@ -1295,6 +1301,12 @@ public class DairyFleet : IHttpHandler, IRequiresSessionState
                 cmd.Parameters.AddWithValue("@inv_sno", o.Inv_sno);
                 vdbmngr.Update(cmd);
             }
+            cmd = new MySqlCommand("UPDATE inventory_monitor set qty=@qty, status=@status WHERE inv_sno=@inv_sno AND branchid=@branchid");
+            cmd.Parameters.Add("@branchid", AgentId);
+            cmd.Parameters.Add("@inv_sno", inv_sno);
+            cmd.Parameters.Add("@qty", closqty);
+            cmd.Parameters.Add("@status", 1);
+            vdbmngr.Update(cmd);
             string msg = "Agent Balance Successfully Updated";
             string Response = GetJson(msg);
             context.Response.Write(Response);
